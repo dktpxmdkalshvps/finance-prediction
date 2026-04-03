@@ -108,13 +108,13 @@ Plotly 기반으로 다음 시각화를 제공합니다.
 
 ### Main Dashboard
 
-<img width="1600" height="2400" alt="screenshot_top_mock" src="https://github.com/user-attachments/assets/d8210ce1-2141-4031-9081-daea169ad77c" />
+![Forecast and Signal](./assets/finance-prediction_top.png)
 
 
 ### Forecast & Trading Signal
 
-
-<img width="1600" height="2200" alt="screenshot_bottom_mock" src="https://github.com/user-attachments/assets/1a3187dd-a8c5-4a70-acd1-03deaf49c6eb" />
+![Forecast and Signal](./assets/finance-prediction_mid.png)
+![Forecast and Signal](./assets/finance-prediction_botton.png)
 
 
 
@@ -128,8 +128,9 @@ Plotly 기반으로 다음 시각화를 제공합니다.
 ├── README.md
 ├── LICENSE
 └── assets/
-    ├── screenshot_main.png
-    └── screenshot_forecast.png
+    ├── finance-prediction_botton.png
+    ├── finance-prediction_mid.png
+    └── finance-prediction_top.png
 ```
 
 ---
