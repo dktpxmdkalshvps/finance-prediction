@@ -107,19 +107,16 @@ Plotly 기반으로 다음 시각화를 제공합니다.
 ## 🖥️ Screens
 
 ### Main Dashboard
-```md
+
 <img width="1600" height="2400" alt="screenshot_top_mock" src="https://github.com/user-attachments/assets/d8210ce1-2141-4031-9081-daea169ad77c" />
 
-````
 
 ### Forecast & Trading Signal
 
-```md
+
 <img width="1600" height="2200" alt="screenshot_bottom_mock" src="https://github.com/user-attachments/assets/1a3187dd-a8c5-4a70-acd1-03deaf49c6eb" />
 
-```
 
-> `assets/` 폴더에 실제 스크린샷 파일을 넣으면 GitHub에서 바로 렌더링됩니다.
 
 ---
 
