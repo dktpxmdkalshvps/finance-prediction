@@ -1,4 +1,3 @@
-````
 # 📈 Finance Prediction Dashboard
 
 <div align="center">
