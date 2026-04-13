@@ -534,10 +534,14 @@ if df.empty:
 
 df = compute_indicators(df)
 signal = trading_signal(df)
-info   = yf.Ticker(ticker).info
+
+try:
+    info = yf.Ticker(ticker).info
+except Exception:
+    info = {}
 
 # ── 종목 헤더 ─────────────────────────────────────────────────────────────────
-name     = info.get("longName") or info.get("shortName", ticker)
+name     = info.get("longName") or info.get("shortName") or ticker
 currency = info.get("currency", "")
 price    = df["Close"].iloc[-1]
 prev     = df["Close"].iloc[-2]
