@@ -1,3 +1,4 @@
+import html
 import streamlit as st
 import yfinance as yf
 import pandas as pd
@@ -422,16 +423,20 @@ chg_pct  = chg / prev * 100
 arrow    = "▲" if chg >= 0 else "▼"
 clr_val  = "#3fb950" if chg >= 0 else "#f85149"
 
+safe_ticker = html.escape(str(ticker))
+safe_name = html.escape(str(name))
+safe_currency = html.escape(str(currency))
+
 st.markdown(f"""
 <div style='background:#161b22; border:1px solid #30363d; border-radius:14px;
             padding:20px 28px; margin-bottom:20px;'>
-  <div style='font-size:0.78rem; color:#8b949e; text-transform:uppercase; letter-spacing:.1em'>{ticker}</div>
-  <div style='font-family:"IBM Plex Mono",monospace; font-size:1.9rem; font-weight:600'>{name}</div>
+  <div style='font-size:0.78rem; color:#8b949e; text-transform:uppercase; letter-spacing:.1em'>{safe_ticker}</div>
+  <div style='font-family:"IBM Plex Mono",monospace; font-size:1.9rem; font-weight:600'>{safe_name}</div>
   <div style='margin-top:6px'>
     <span style='font-family:"IBM Plex Mono",monospace; font-size:2.2rem; font-weight:600'>
       {price:,.2f}
     </span>
-    <span style='color:#8b949e; font-size:1rem; margin-left:6px'>{currency}</span>
+    <span style='color:#8b949e; font-size:1rem; margin-left:6px'>{safe_currency}</span>
     <span style='color:{clr_val}; font-size:1rem; margin-left:14px'>
       {arrow} {abs(chg):,.2f} ({abs(chg_pct):.2f}%)
     </span>
@@ -496,12 +501,13 @@ with col_detail:
     for s, desc in signal["details"]:
         cls = badge_cls = {"buy": "signal-buy", "sell": "signal-sell", "hold": "signal-hold"}[s]
         icon = {"buy": "▲", "sell": "▼", "hold": "●"}[s]
+        safe_desc = html.escape(str(desc))
         rows += f"""
         <tr>
           <td style='padding:7px 12px'>
             <span class='signal-badge {cls}'>{icon} {s.upper()}</span>
           </td>
-          <td style='padding:7px 12px; color:#c9d1d9'>{desc}</td>
+          <td style='padding:7px 12px; color:#c9d1d9'>{safe_desc}</td>
         </tr>"""
     st.markdown(f"""
     <div style='background:#161b22; border:1px solid #30363d; border-radius:12px; overflow:hidden'>
