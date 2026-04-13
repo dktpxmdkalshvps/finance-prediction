@@ -104,19 +104,9 @@ Plotly 기반으로 다음 시각화를 제공합니다.
 
 ---
 
-## 🖥️ Screens
+## 🖥️ Demo
 
-### Main Dashboard
-
-![Forecast and Signal](./assets/finance-prediction_top.png)
-
-
-### Forecast & Trading Signal
-
-![Forecast and Signal](./assets/finance-prediction_mid.png)
-![Forecast and Signal](./assets/finance-prediction_botton.png)
-
-
+![Demo](./assets/demo.gif)
 
 ---
 
@@ -128,6 +118,7 @@ Plotly 기반으로 다음 시각화를 제공합니다.
 ├── README.md
 ├── LICENSE
 └── assets/
+    ├── demo.gif
     ├── finance-prediction_botton.png
     ├── finance-prediction_mid.png
     └── finance-prediction_top.png
