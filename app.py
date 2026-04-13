@@ -1,4 +1,3 @@
-import html
 import streamlit as st
 import yfinance as yf
 import pandas as pd
@@ -352,13 +351,137 @@ with st.sidebar:
     st.markdown("---")
 
     presets = {
-        "🇺🇸 주식": ["AAPL", "MSFT", "NVDA", "TSLA", "AMZN", "GOOGL"],
-        "🇰🇷 주식": ["005930.KS", "000660.KS", "035420.KS", "035720.KS"],
-        "💰 암호화폐": ["BTC-USD", "ETH-USD", "SOL-USD", "BNB-USD"],
+        "🇺🇸 주식": {
+            "애플": "AAPL",
+            "마이크로소프트": "MSFT",
+            "엔비디아": "NVDA",
+            "테슬라": "TSLA",
+            "아마존": "AMZN",
+            "알파벳 A": "GOOGL",
+            "AMD": "AMD",
+            "SPY": "SPY",
+            "IVV": "IVV",
+            "버크셔해서웨이 B": "BRK-B",
+            "아메리칸 익스프레스": "AXP",
+            "웨이스트 매니저먼트": "WM",
+            "웨이스트 커넥션스": "WCN",
+            "쇼피파이": "SHOP",
+            "캐나디언 내셔널 레일웨이": "CNI",
+            "뱅크오브아메리카": "BAC",
+            "로쿠": "ROKU",
+            "코카콜라": "KO",
+            "코카콜라 펨사(ADR)": "KOF",
+            "코인베이스": "COIN",
+            "램 리서치": "LRCX",
+            "캐터필러": "CAT",
+            "셰브론": "CVX",
+            "팔란티어": "PLTR",
+            "세일즈포스": "CRM",
+            "디어": "DE",
+            "무디스": "MCO",
+            "크리스퍼 테라퓨틱스": "CRSP",
+            "에코랩": "ECL",
+            "옥시덴탈 페트롤리움": "OXY",
+            "월마트": "WMT",
+            "처브": "CB",
+            "로빈후드": "HOOD",
+            "페덱스": "FDX",
+            "크래프트 하인즈": "KHC",
+            "테라다인": "TER",
+            "어도비": "ADBE",
+            "템퍼스 AI": "TEM",
+            "GE 버노바": "GEV",
+            "다비타": "DVA",
+            "로블록스": "RBLX",
+            "부킹 홀딩스": "BKNG",
+            "쿠팡": "CPNG",
+            "크로거": "KR",
+            "빔 테라퓨틱스": "BEAM",
+            "브로드컴": "AVGO",
+            "매디슨 스퀘어 가든 스포츠": "MSGS",
+            "비자": "V",
+            "써클 인터넷 그룹": "CRCL",
+            "오라클": "ORCL",
+            "슈뢰딩거": "SDGR",
+            "시리우스 XM 홀딩스": "SIRI",
+            "웨스트 파마슈티컬 서비시스": "WST",
+            "마스터카드": "MA",
+            "아처 에비에이션": "ACHR",
+            "존슨 앤 존슨": "JNJ",
+            "파카": "PH",
+            "베리사인": "VRSN",
+            "크라토스 디펜스 & 시큐리티": "KTOS",
+            "마이크론 테크놀로지": "MU",
+            "안호이저부시 인베브(ADR)": "BUD",
+            "콘스텔레이션 브랜즈": "STZ",
+            "비트마인 이머션 테크놀로지스": "BMAS",
+            "맥도날드": "MCD",
+            "캐피탈 원 파이낸셜": "COF",
+            "트위스트 바이오사이언스": "TWST",
+            "뉴몬트": "NEM",
+            "다나허": "DHR",
+            "유나이티드 헬스 그룹": "UNH",
+            "워크데이": "WDAY",
+            "도미노 피자": "DPZ",
+            "TSMC(ADR)": "TSM",
+            "서비스나우": "NOW",
+        },
+        "🇰🇷 주식": {
+            "삼성전자": "005930.KS",
+            "삼성전자우": "005935.KS",
+            "SK하이닉스": "000660.KS",
+            "LG에너지솔루션": "373220.KS",
+            "삼성바이오로직스": "207940.KS",
+            "한화에어로스페이스": "012450.KS",
+            "현대차": "005380.KS",
+            "현대차우": "005385.KS",
+            "현대차2우B": "005387.KS",
+            "현대차3우B": "005389.KS",
+            "기아": "000270.KS",
+            "셀트리온": "068270.KS",
+            "KB금융": "105560.KS",
+            "신한지주": "055550.KS",
+            "삼성물산": "028260.KS",
+            "삼성물산우B": "028265.KS",
+            "삼성생명": "032830.KS",
+            "SK스퀘어": "402340.KS",
+            "HD현대중공업": "329180.KS",
+            "두산에너빌리티": "034020.KS",
+            "NAVER": "035420.KS",
+            "카카오": "035720.KS",
+            "에코프로": "086520.KQ",
+            "에코프로비엠": "247540.KQ",
+            "알테오젠": "196170.KQ",
+            "HLB": "028300.KQ",
+            "레인보우로보틱스": "277810.KQ",
+            "에이비엘바이오": "298380.KQ",
+            "리가켐바이오": "141080.KQ",
+            "리노공업": "058470.KQ",
+            "보로노이": "310210.KQ",
+            "원익IPS": "240810.KQ",
+            "이오테크닉스": "039030.KQ",
+            "ISC": "095340.KQ",
+            "HPSP": "403870.KQ",
+            "케어젠": "214370.KQ",
+            "올릭스": "226950.KQ",
+            "로보티즈": "108490.KQ",
+            "펩트론": "087010.KQ",
+            "코오롱티슈진": "950160.KQ",
+            "삼천당제약": "000250.KS",
+            "우리기술": "032820.KQ",
+        },
+        "💰 암호화폐": {
+            "비트코인": "BTC-USD",
+            "이더리움": "ETH-USD",
+            "솔라나": "SOL-USD",
+            "BNB": "BNB-USD",
+        },
     }
 
     category = st.selectbox("카테고리", list(presets.keys()))
-    ticker_select = st.selectbox("종목 선택", presets[category])
+    ticker_names = list(presets[category].keys())
+    ticker_name_select = st.selectbox("종목 선택", ticker_names)
+    ticker_select = presets[category][ticker_name_select]
     ticker_input  = st.text_input("직접 입력 (예: TSLA, 005930.KS, BTC-USD)", "")
     ticker = ticker_input.strip().upper() if ticker_input.strip() else ticker_select
 
@@ -423,20 +546,16 @@ chg_pct  = chg / prev * 100
 arrow    = "▲" if chg >= 0 else "▼"
 clr_val  = "#3fb950" if chg >= 0 else "#f85149"
 
-safe_ticker = html.escape(str(ticker))
-safe_name = html.escape(str(name))
-safe_currency = html.escape(str(currency))
-
 st.markdown(f"""
 <div style='background:#161b22; border:1px solid #30363d; border-radius:14px;
             padding:20px 28px; margin-bottom:20px;'>
-  <div style='font-size:0.78rem; color:#8b949e; text-transform:uppercase; letter-spacing:.1em'>{safe_ticker}</div>
-  <div style='font-family:"IBM Plex Mono",monospace; font-size:1.9rem; font-weight:600'>{safe_name}</div>
+  <div style='font-size:0.78rem; color:#8b949e; text-transform:uppercase; letter-spacing:.1em'>{ticker}</div>
+  <div style='font-family:"IBM Plex Mono",monospace; font-size:1.9rem; font-weight:600'>{name}</div>
   <div style='margin-top:6px'>
     <span style='font-family:"IBM Plex Mono",monospace; font-size:2.2rem; font-weight:600'>
       {price:,.2f}
     </span>
-    <span style='color:#8b949e; font-size:1rem; margin-left:6px'>{safe_currency}</span>
+    <span style='color:#8b949e; font-size:1rem; margin-left:6px'>{currency}</span>
     <span style='color:{clr_val}; font-size:1rem; margin-left:14px'>
       {arrow} {abs(chg):,.2f} ({abs(chg_pct):.2f}%)
     </span>
@@ -501,13 +620,12 @@ with col_detail:
     for s, desc in signal["details"]:
         cls = badge_cls = {"buy": "signal-buy", "sell": "signal-sell", "hold": "signal-hold"}[s]
         icon = {"buy": "▲", "sell": "▼", "hold": "●"}[s]
-        safe_desc = html.escape(str(desc))
         rows += f"""
         <tr>
           <td style='padding:7px 12px'>
             <span class='signal-badge {cls}'>{icon} {s.upper()}</span>
           </td>
-          <td style='padding:7px 12px; color:#c9d1d9'>{safe_desc}</td>
+          <td style='padding:7px 12px; color:#c9d1d9'>{desc}</td>
         </tr>"""
     st.markdown(f"""
     <div style='background:#161b22; border:1px solid #30363d; border-radius:12px; overflow:hidden'>
